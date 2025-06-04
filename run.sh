@@ -1,6 +1,6 @@
 mkdir build && cd build
 cmake .. && make
-clear
+# clear
 ./OpenGLGame
 cd ..
 rm -r ./build/
