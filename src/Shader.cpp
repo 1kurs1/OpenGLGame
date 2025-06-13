@@ -82,6 +82,14 @@ void Shader::unbind() const {
     glUseProgram(0);
 }
 
+void Shader::setUniform1i(const std::string& loc, int v){
+    glUniform1i(getUniformLocation(loc), v);
+}
+
+void Shader::setUniform1f(const std::string& loc, float v){
+    glUniform1f(getUniformLocation(loc), v);
+}
+
 void Shader::setUniform4f(const std::string& loc, float v0, float v1, float v2, float v3){
     glUniform4f(getUniformLocation(loc), v0, v1, v2, v3);
 }

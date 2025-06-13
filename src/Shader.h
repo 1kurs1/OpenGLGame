@@ -13,6 +13,8 @@ public:
     void bind() const;
     void unbind() const;
 
+    void setUniform1i(const std::string& loc, int v);
+    void setUniform1f(const std::string& loc, float v);
     void setUniform4f(const std::string& loc, float v0, float v1, float v2, float v3);
 
 private:
