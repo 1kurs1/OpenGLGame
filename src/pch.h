@@ -20,3 +20,9 @@
 // GLM includes:
 #include "glm.hpp"
 #include "gtc/matrix_transform.hpp"
+
+// ImGUI includes:
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3_loader.h"
+#include "imgui_impl_opengl3.h"

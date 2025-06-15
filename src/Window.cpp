@@ -24,4 +24,9 @@ void Window::init(){
         std::cout << "error: couldn`d load glad!\n";
         glfwTerminate();
     }
+
+    ImGui::CreateContext();
+    ImGui_ImplGlfw_InitForOpenGL(p_glfwWindow, true);
+    ImGui_ImplOpenGL3_Init();
+    ImGui::StyleColorsDark();
 }

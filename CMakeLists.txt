@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_COMPILER clang)
 set(CMAKE_CXX_COMPILER clang++)
 
+add_definitions(-DIMGUI_DEFINE_MATH_OPERATORS)
+
 add_library(glad STATIC vendor/glad/glad.c)
 target_include_directories(glad PUBLIC vendor/glad)
 
@@ -18,6 +20,13 @@ set(SOURCES
     src/Shader.cpp
     src/Renderer.cpp
     vendor/stb_image/stb_image.cpp
+    vendor/imgui/imgui.cpp
+    vendor/imgui/imgui_demo.cpp
+    vendor/imgui/imgui_draw.cpp
+    vendor/imgui/imgui_widgets.cpp
+    vendor/imgui/imgui_tables.cpp
+    vendor/imgui/imgui_impl_glfw.cpp
+    vendor/imgui/imgui_impl_opengl3.cpp
     src/Texture.cpp
 )
 
@@ -43,6 +52,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     vendor/spdlog/include
     vendor/glm/glm
     vendor/stb_image
+    vendor/imgui
 )
 
 target_link_directories(
