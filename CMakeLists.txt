@@ -28,7 +28,6 @@ set(HEADERS
     src/VertexArray.h
     src/Shader.h
     src/Renderer.h
-    vendor/stb_image/stb_image.h
     src/Texture.h
 )
 
@@ -42,12 +41,15 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     vendor/glfw/include
     vendor/glad
     vendor/spdlog/include
+    vendor/glm/glm
+    vendor/stb_image
 )
 
 target_link_directories(
     ${PROJECT_NAME} PRIVATE
     vendor/glfw/build/src
     vendor/spdlog/build/
+    vendor/glm/build/glm
 )
 
 target_link_libraries(
@@ -66,4 +68,5 @@ target_link_libraries(
     m
     gtk-3
     libspdlog.a
+    libglm.a
 )

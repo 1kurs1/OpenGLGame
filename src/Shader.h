@@ -16,6 +16,7 @@ public:
     void setUniform1i(const std::string& loc, int v);
     void setUniform1f(const std::string& loc, float v);
     void setUniform4f(const std::string& loc, float v0, float v1, float v2, float v3);
+    void setUniformMat4f(const std::string& loc, const glm::mat4& m);
 
 private:
     uint32_t compileShader(uint32_t type, const std::string& source);

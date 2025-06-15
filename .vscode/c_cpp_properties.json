@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/vendor/glfw/include"
+                "${workspaceFolder}/vendor/glfw/include",
+                "${workspaceFolder}/vendor/glm/glm"
             ],
             "defines": [
                 "GAME_VERSION=\"${CMAKE_PROJECT_VERSION}\""

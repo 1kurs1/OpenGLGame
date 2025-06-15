@@ -11,13 +11,11 @@ int main(){
 
     Window mainWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "OpenGLGame");
 
-    float sc = ((float)mainWindow.getHeight()/(float)mainWindow.getWidth());
-
     float vertices[] = {
-        -0.5f * sc, -0.5f, 0.0f, 0.0f,
-        0.5f * sc, -0.5f, 1.0f, 0.0f,
-        0.5f * sc, 0.5f, 1.0f, 1.0f,
-        -0.5f * sc, 0.5f, 0.0f, 1.0f
+        -200.0f, -200.0f, 0.0f, 0.0f,
+        200.0f, -200.0f, 1.0f, 0.0f,
+        200.0f, 200.0f, 1.0f, 1.0f,
+        -200.0f, 200.0f, 0.0f, 1.0f
     };
     uint32_t indices[] = {
         0, 1, 2,
@@ -36,12 +34,27 @@ int main(){
     va.addBuffer(vb, layout);
     IndexBuffer ib(indices, 6);
 
+    float aspectRatio = ((float)WINDOW_WIDTH)/((float)WINDOW_HEIGHT);
+    glm::mat4 projectionMatrix = glm::ortho(-1000.0f * aspectRatio, 1000.0f * aspectRatio, -1000.0f, 1000.0f, -1.0f, 1.0f);
+    glm::mat4 cameraView = glm::translate(glm::mat4(1.0f), glm::vec3(-500, 0, 0));
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(100, 100, 0));
+
+    glm::mat4 mvp = projectionMatrix * cameraView * model;
+
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+            std::cout << mvp[i][j] << ' ';
+        }
+        std::cout << '\n';
+    }
+
     Shader shader("../shaders/Standart.shader");
     shader.bind();
     
     Texture texture("../assets/images/nicromis_logo.png");
     texture.bind();
     shader.setUniform1i("u_texture", 0);
+    shader.setUniformMat4f("u_ModelViewProjection", mvp);
 
     va.unbind();
     vb.unbind();

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Texture.h"
 
-#include "../vendor/stb_image/stb_image.h"
+#include "stb_image.h"
 
 Texture::Texture(const std::string &path) : m_rendererID(0), m_filePath(path), m_localBuffer(nullptr), m_width(0), m_height(0), m_bitsPerPixel(0){
     stbi_set_flip_vertically_on_load(1);
