@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.30)
-project(OpenGLGame VERSION 0.3.1 LANGUAGES C CXX)
+project(OpenGLGame VERSION 0.3.5 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,11 +14,11 @@ target_include_directories(glad PUBLIC vendor/glad)
 set(SOURCES 
     src/main.cpp 
     src/pch.cpp
-    src/Window.cpp
-    src/Buffer.cpp
-    src/VertexArray.cpp
-    src/Shader.cpp
-    src/Renderer.cpp
+    src/Core/Window.cpp
+    src/Renderer/Buffer.cpp
+    src/Renderer/VertexArray.cpp
+    src/Renderer/Shader.cpp
+    src/Renderer/Renderer.cpp
     vendor/stb_image/stb_image.cpp
     vendor/imgui/imgui.cpp
     vendor/imgui/imgui_demo.cpp
@@ -27,26 +27,35 @@ set(SOURCES
     vendor/imgui/imgui_tables.cpp
     vendor/imgui/imgui_impl_glfw.cpp
     vendor/imgui/imgui_impl_opengl3.cpp
-    src/Texture.cpp
+    src/Renderer/Texture2D.cpp
+    tests/Test.cpp
+    tests/TestTexture2D.cpp
+    tests/TestSkyboxColor.cpp
 )
 
 set(HEADERS 
     src/pch.h
-    src/Window.h
-    src/Buffer.h
-    src/VertexArray.h
-    src/Shader.h
-    src/Renderer.h
-    src/Texture.h
+    src/Core/Window.h
+    src/Renderer/Buffer.h
+    src/Renderer/VertexArray.h
+    src/Renderer/Shader.h
+    src/Renderer/Renderer.h
+    src/Renderer/Texture2D.h
+    tests/Test.h
+    tests/TestTexture2D.h
+    tests/TestSkyboxColor.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 target_precompile_headers(${PROJECT_NAME} PRIVATE src/pch.h)
 
-target_compile_definitions(${PROJECT_NAME} PUBLIC GAME_VERSION="${CMAKE_PROJECT_VERSION}")
+target_compile_definitions(${PROJECT_NAME} PUBLIC GAME_VERSION="${CMAKE_PROJECT_VERSION}"
+VERSION_CODE_NAME="VISUAL UPDATE")
 target_include_directories(${PROJECT_NAME} PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}
+    tests
+    src
     vendor/glfw/include
     vendor/glad
     vendor/spdlog/include

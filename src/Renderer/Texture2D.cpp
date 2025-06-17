@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Texture.h"
+#include "Texture2D.h"
 
 #include "stb_image.h"
 

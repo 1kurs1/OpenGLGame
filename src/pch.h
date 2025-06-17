@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <sstream>
 #include <unordered_map>
+#include <functional>
 
 // OpenGL includes:
 #include "glad.h"

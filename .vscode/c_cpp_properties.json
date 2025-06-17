@@ -8,7 +8,8 @@
                 "${workspaceFolder}/vendor/glm/glm"
             ],
             "defines": [
-                "GAME_VERSION=\"${CMAKE_PROJECT_VERSION}\""
+                "GAME_VERSION=\"${CMAKE_PROJECT_VERSION}\"",
+                "VERSION_CODE_NAME=\"VISUAL UPDATE\""
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
