@@ -3,18 +3,21 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/vendor/glfw/include",
-                "${workspaceFolder}/vendor/glm/glm"
+                "${default}",
+                "${workspaceFolder}/Confuse/src",
+                "${workspaceFolder}/Confuse/vendor/spdlog/include/",
+                "${workspaceFolder}/Confuse/vendor/",
+                "${workspaceFolder}/Confuse/vendor/Glad/include",
+                "${workspaceFolder}/Confuse/vendor/imgui"
             ],
             "defines": [
-                "GAME_VERSION=\"${CMAKE_PROJECT_VERSION}\"",
-                "VERSION_CODE_NAME=\"VISUAL UPDATE\""
+                "CE_PLATFORM_LINUX",
+                "CE_BUILD_LIB"
             ],
-            "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-clang-x64"
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/g++"
         }
     ],
     "version": 4

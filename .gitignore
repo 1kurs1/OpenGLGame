@@ -1,0 +1,9 @@
+#dirs
+
+.vscode/
+bin/
+bin_int/
+
+#files
+
+*.o
